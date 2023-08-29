@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#6A1C50"
+    tools:context=".ui.MainActivity">
+
+    <LinearLayout
+        android:id="@+id/linear_menu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#5F1049"
+        android:padding="11dp">
+
+        <ImageView
+            android:id="@+id/ic_reverse"
+            android:layout_width="8dp"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            android:src="@drawable/inclusive"
+            app:tint="#ffff" />
+
+        <ImageView
+            android:id="@+id/ic_person"
+            android:layout_width="8dp"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            android:src="@drawable/person"/>
+
+        <ImageView
+            android:id="@+id/ic_theme"
+            android:layout_width="8dp"
+            android:layout_weight="1"
+            android:layout_height="40dp"
+            android:src="@drawable/dark"/>
+
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/phrase_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:gravity="center"
+        android:padding="15dp"
+        android:text="@string/motivation_phrase"
+        android:textColor="#ffff"
+        android:textSize="22sp" />
+
+    <TextView
+        android:id="@+id/name_hello"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/linear_menu"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="30dp"
+        android:fontFamily="@font/cabin"
+        android:gravity="center"
+        android:text="Ola Nome"
+        android:textColor="#ffff"
+        android:textSize="15sp" />
+
+    <View
+        android:id="@+id/view_phrase"
+        android:layout_width="128dp"
+        android:layout_height="5dp"
+        android:layout_below="@id/phrase_text"
+        android:layout_centerInParent="true"
+        android:background="#A12979"
+        android:elevation="10dp" />
+
+    <Button
+        android:id="@+id/button_phrase"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerInParent="true"
+        android:layout_marginBottom="45dp"
+        android:backgroundTint="#5F1049"
+        android:fontFamily="@font/cabin"
+        android:padding="20dp"
+        android:text="@string/newPhase"
+        android:textAllCaps="true" />
+</RelativeLayout>
