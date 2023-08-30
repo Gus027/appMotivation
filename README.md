@@ -48,11 +48,6 @@ O aplicativo **Motivation** é uma ferramenta simples que fornece aos usuários 
 - Interface simples e intuitiva.
 - Frases cuidadosamente selecionadas para fornecer inspiração e motivação.
 
-## Bibliotecas de Terceiros
-
-O projeto **Motivation** utiliza as seguintes bibliotecas de terceiros:
-
-- Nenhuma biblioteca de terceiros é utilizada neste aplicativo.
 
 ## Contribuição
 
