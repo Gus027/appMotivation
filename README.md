@@ -22,7 +22,7 @@ O aplicativo **Motivation** é uma ferramenta simples que fornece aos usuários 
 
 ## Instalação
 
-1. Faça o download do arquivo de instalação do aplicativo (*APK*) a partir da [página de lançamentos](link-para-a-página-de-lançamentos) no repositório do projeto.
+1. Faça o download do arquivo de instalação do aplicativo (*APK*) a partir do repositório do projeto.
 2. Transfira o arquivo *APK* para o seu dispositivo Android, se necessário.
 3. No dispositivo Android, abra um explorador de arquivos e navegue até o local do arquivo *APK*.
 4. Toque no arquivo *APK* para iniciar o processo de instalação.
