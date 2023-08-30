@@ -9,9 +9,7 @@ Bem-vindo à documentação do aplicativo **Motivation**! Este aplicativo Androi
 - [Instalação](#instalação)
 - [Uso](#uso)
 - [Funcionalidades](#funcionalidades)
-- [Bibliotecas de Terceiros](#bibliotecas-de-terceiros)
 - [Contribuição](#contribuição)
-- [Licença](#licença)
 
 ## Visão Geral
 
