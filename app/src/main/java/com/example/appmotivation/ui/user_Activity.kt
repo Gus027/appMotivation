@@ -12,26 +12,24 @@ import com.example.appmotivation.databinding.ActivityUserBinding
 
 class user_Activity : AppCompatActivity(), View.OnClickListener {
     private lateinit var binding: ActivityUserBinding
-
+    private lateinit var SecurityPreferences: SecurityPreferences
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityUserBinding.inflate(layoutInflater)
-
-        binding.buttonPhraseUser.setOnClickListener(this)
-
         setContentView(binding.root)
-        handleSave()
 
         supportActionBar?.hide()
 
+        SecurityPreferences = SecurityPreferences(this)
+
+        binding.buttonPhraseUser.setOnClickListener(this)
         verifyNameUser()
 
     }
 
     override fun onClick(v: View) {
         if(v.id == R.id.button_phrase_user){
-
-
+            handleSave()
         }
     }
 

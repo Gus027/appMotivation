@@ -13,7 +13,12 @@ import com.example.appmotivation.databinding.ActivityMainBinding
 class MainActivity : AppCompatActivity(), View.OnClickListener {
 
     private lateinit var binding: ActivityMainBinding
+    private lateinit var security: SecurityPreferences
     private var categoryId = MotivationConstVar.FILTER.REVERSE
+
+    private var filter: Int = MotivationConstVar.FILTER.REVERSE
+    private val mock: Mock = Mock()
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -21,18 +26,13 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        helloName()
-        handleFilter(R.id.ic_reverse)
-
-        binding.buttonPhrase.setOnClickListener(this)
-        binding.icReverse.setOnClickListener(this)
-        binding.icPerson.setOnClickListener(this)
-        binding.icTheme.setOnClickListener(this)
-
+        security = SecurityPreferences(this)
         supportActionBar?.hide()
 
+        setListeners()
 
-
+        showUserName()
+        handleFilter(R.id.ic_reverse)
     }
 
     override fun onClick(view: View) {
@@ -44,30 +44,71 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         }
     }
 
+    fun setListeners(){
+        binding.icPerson.setOnClickListener(this)
+        binding.icTheme.setOnClickListener(this)
+        binding.icReverse.setOnClickListener(this)
+        binding.buttonPhrase.setOnClickListener(this)
+    }
     fun nextPhrase(){
         binding.phraseText.text = Mock().randomPhrase(categoryId)
     }
 
-    fun helloName(){
+    fun showUserName(){
       var name = SecurityPreferences(this).getString(MotivationConstVar.key.USER_NAME)
       binding.nameHello.text = "Ola $name!"
 
     }
 
-    fun handleFilter(id: Int){
+//    fun handleFilter(id: Int){
+//
+//
+//        if(id == R.id.ic_reverse){
+//            binding.icReverse.setColorFilter(ContextCompat.getColor(this,R.color.white))
+//            categoryId = MotivationConstVar.FILTER.REVERSE
+//        }
+//        else if(id == R.id.ic_theme){
+//            binding.icTheme.setColorFilter(ContextCompat.getColor(this,R.color.white))
+//            categoryId = MotivationConstVar.FILTER.THEME
+//        }
+//        else if(id == R.id.ic_person){
+//            binding.icPerson.setColorFilter(ContextCompat.getColor(this,R.color.white))
+//            categoryId = MotivationConstVar.FILTER.PERSON
+//        }
+//    }
 
+    private fun handleFilter(id: Int) {
 
-        if(id == R.id.ic_reverse){
-            binding.icReverse.setColorFilter(ContextCompat.getColor(this,R.color.white))
-            categoryId = MotivationConstVar.FILTER.REVERSE
-        }
-        else if(id == R.id.ic_theme){
-            binding.icTheme.setColorFilter(ContextCompat.getColor(this,R.color.white))
-            categoryId = MotivationConstVar.FILTER.THEME
-        }
-        else if(id == R.id.ic_person){
-            binding.icPerson.setColorFilter(ContextCompat.getColor(this,R.color.white))
-            categoryId = MotivationConstVar.FILTER.PERSON
+        binding.icReverse.setColorFilter(ContextCompat.getColor(this, R.color.white))
+        binding.icTheme.setColorFilter(ContextCompat.getColor(this, R.color.white))
+        binding.icPerson.setColorFilter(ContextCompat.getColor(this, R.color.white))
+
+        when (id) {
+            R.id.ic_reverse -> {
+                filter = MotivationConstVar.FILTER.REVERSE
+                binding.icReverse.setColorFilter(
+                    ContextCompat.getColor(this, R.color.white)
+                )
+            }
+
+            R.id.ic_person -> {
+                filter = MotivationConstVar.FILTER.PERSON
+
+                // Possível de trocar a fonte da imagem e atribuir ao elemento de layout
+                // binding.imageHappy.setImageResource(R.drawable.ic_all)
+
+                // Possível de trocar a cor do ícone
+                binding.icPerson.setColorFilter(
+                    ContextCompat.getColor(this, R.color.white)
+                )
+            }
+
+            else -> {
+                filter = MotivationConstVar.FILTER.THEME
+                binding.icTheme.setColorFilter(
+                    ContextCompat.getColor(this, R.color.white)
+                )
+            }
         }
     }
 }
